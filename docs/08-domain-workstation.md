@@ -255,3 +255,15 @@ CLIENT01 (Domain Workstation)
 Users can log into CLIENT01 using domain credentials, and authentication is handled by DC01.
 
 This demonstrates a functioning Active Directory environment.
+
+---
+
+## Troubleshooting Note — DNS Dependency
+
+During later testing, the workstation failed to resolve domain resources when its DNS server was changed away from the domain controller.
+
+This confirmed that Active Directory operations in the lab depend on CLIENT01 using DC01 as its DNS server.
+
+When DNS was pointed to an external server, internal domain resources such as `corp.local` and shared paths could not be resolved properly.
+
+This reinforced the importance of DNS in Windows domain environments.
