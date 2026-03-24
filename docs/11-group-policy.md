@@ -101,3 +101,57 @@ This demonstrated centralized management of user environments through Group Poli
 - User-based policy application
 - Centralized drive mapping
 - Login-time configuration deployment
+
+---
+
+## User Environment Restriction Policy
+
+A Group Policy Object was created to restrict access to the Control Panel for a specific set of users.
+
+### Configuration
+
+The GPO was linked to a dedicated Organizational Unit named `TestUsers`.
+
+Policy path:
+
+User Configuration → Policies → Administrative Templates → Control Panel
+
+Setting:
+
+Prohibit access to Control Panel and PC settings: Enabled
+
+### Result
+
+After applying the policy and logging into CLIENT01, the test user was unable to open the Control Panel.
+
+### Purpose
+
+This demonstrates how administrators can control user environments and restrict access to system settings using Group Policy.
+
+### Lesson Learned
+
+Group Policy should be applied to specific Organizational Units to avoid affecting all users in the domain. Testing policies in isolated OUs is a best practice in enterprise environments.
+
+---
+
+## Group Policy Security Filtering
+
+Security filtering was used to apply a Group Policy Object to a specific user instead of all users in an Organizational Unit.
+
+### Configuration
+
+The default security filter (`Authenticated Users`) was removed from the GPO.
+
+A specific user account was added to the Security Filtering section.
+
+### Result
+
+The policy only applied to the selected user, while other users in the same OU were unaffected.
+
+### Purpose
+
+Security filtering allows precise control over which users or groups receive a policy without requiring changes to the Organizational Unit structure.
+
+### Lesson Learned
+
+Security filtering is an important tool for safely testing and deploying Group Policy changes in enterprise environments.
